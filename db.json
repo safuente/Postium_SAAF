@@ -280,6 +280,22 @@
         2
       ],
       "id": 10
+    },
+    {
+      "title": "Prueba",
+      "intro": "Prueba",
+      "body": "Prueba",
+      "likes": [],
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "publicationDate": 1507487453135,
+      "id": 11
     }
   ],
   "categories": [

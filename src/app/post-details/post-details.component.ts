@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NativeWindow } from '../window';
 import { Router } from '@angular/router';
 import { Post } from '../post';
-import { User} from '../user';
+import { Category } from '../category';
 import { PostService } from '../post.service';
 
 @Component({
@@ -36,6 +36,10 @@ export class PostDetailsComponent implements OnInit {
 
   verAutor(post: Post):void {
     this._router.navigate(['posts/users',post.author.id])
+  }
+  verCategoria(category: Category):void {
+    console.log(category.name)
+    this._router.navigate(['posts/categories',category.id])
   }
   /*=========================================================================|
   | Red Path                                                                 |

@@ -17,8 +17,10 @@ export class PostsResolveService implements Resolve<Post[]> {
       return this._postService.getUserPosts(route.params.userId);
     
       }
-    
-
+      else if (route.url[1] ? route.url[1].path === 'categories' : false){
+        console.log(route.params)
+        return this._postService.getCategoryPosts(route.params.categoryId);
+    }
     /*=========================================================================|
     | Red Path                                                                 |
     |==========================================================================|

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Category } from '../category';
 
@@ -10,6 +10,13 @@ import { Category } from '../category';
 export class CategoryBoxComponent {
 
   @Input() categories: Category[];
+
+  @Output() categoriaSeleccionada = new EventEmitter <Category>();
+
+  notificarSeleccionCategoria(category: Category): void{
+    console.log("notificando categoria");
+    this.categoriaSeleccionada.emit(category);
+  }
 
   /*=========================================================================|
   | Yellow Path                                                              |

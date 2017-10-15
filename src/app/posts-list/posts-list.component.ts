@@ -47,5 +47,10 @@ export class PostsListComponent {
   this._router.navigate(['posts/users',post.author.id])
 }
 
+editarPost(post: Post):void {
+  
+  this._router.navigate(['/edit-story',post.id])
+}
+
  
 }

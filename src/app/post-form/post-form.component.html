@@ -13,7 +13,7 @@
   <input
     type="text"
     placeholder="Título"
-    class="u-full-width" formControlName="title">
+    class="u-full-width" formControlName="title"    >{{title}}
     <span *ngIf="postForm.get('title').touched && postForm.get('title').invalid">
     El título del post es obligatorio.
   </span>
@@ -49,5 +49,6 @@
   <button
     type="submit" [disabled]= "postForm.invalid"
     class="button-primary u-pull-right">Publicar</button>
+   
 
 </form>

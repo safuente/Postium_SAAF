@@ -69,3 +69,8 @@
   letter-spacing: -.004em;
   margin: 0;
 }
+
+.post .edit {
+  padding: 20px;
+  margin-bottom: 15px
+}

@@ -17,6 +17,8 @@ export class NewStoryComponent implements OnDestroy {
     private _postService: PostService,
     private _router: Router) { }
 
+    
+
   ngOnDestroy(): void {
     this._unsubscribePostCreation();
   }

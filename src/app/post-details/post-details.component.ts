@@ -38,7 +38,6 @@ export class PostDetailsComponent implements OnInit {
     this._router.navigate(['posts/users',post.author.id])
   }
   verCategoria(category: Category):void {
-    console.log(category.name)
     this._router.navigate(['posts/categories',category.id])
   }
   /*=========================================================================|

@@ -31,4 +31,7 @@
   <h3>{{ post.title }}</h3>
   <img *ngIf="post.media" [src]="post.media" class="u-max-full-width">
   <div class="html-text" [innerHtml]="plainTextToHtml(post.intro)"></div>
+  <div class="edit" *ngIf="checkUserDefault(post.author.id)">
+    <button (click)="notificarEdicionPost(post)" type="submit" class="button-primary u-pull-right">Editar</button>
+  </div>
 </div>

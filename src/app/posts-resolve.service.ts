@@ -21,6 +21,8 @@ export class PostsResolveService implements Resolve<Post[]> {
         console.log(route.params)
         return this._postService.getCategoryPosts(route.params.categoryId);
     }
+
+  
     /*=========================================================================|
     | Red Path                                                                 |
     |==========================================================================|

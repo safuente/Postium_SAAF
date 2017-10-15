@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Post } from '../post';
-
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-post-preview',
@@ -12,6 +12,10 @@ export class PostPreviewComponent {
   
   @Input() post: Post;
   
+  constructor(
+    private _userService: UserService
+     
+  ){}
 
   /*=========================================================================|
   | Red Path                                                                 |
@@ -34,8 +38,17 @@ export class PostPreviewComponent {
   | además, un manejador para el mismo.                                      |
   |=========================================================================*/
 
+  @Output() postEditado= new EventEmitter <Post>();
   @Output() autorSeleccionado = new EventEmitter <Post>();
   @Output() postSeleccionado = new EventEmitter <Post>();
+
+  checkUserDefault(id: number):boolean{
+   return id===this._userService.getDefaultUser().id;
+  }
+
+  notificarEdicionPost(post:Post):void{
+    this.postEditado.emit(post);
+  }
 
   notificarSeleccionAutor(post: Post): void{
     this.autorSeleccionado.emit(post);

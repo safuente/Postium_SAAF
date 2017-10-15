@@ -1,16 +1,23 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { FormGroup} from '@angular/forms';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';  
+import { ActivatedRoute, Resolve } from '@angular/router';
+
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { environment } from '../environments/environment';
 import { Post } from './post';
+import { PostFormComponent} from './post-form/post-form.component'
 
 @Injectable()
 export class PostService {
-
-  constructor(private _http: HttpClient) { }
+  postForm: FormGroup;
+  constructor(private _http: HttpClient, private _route: ActivatedRoute) { 
+    
+  }
 
   getPosts(): Observable<Post[]> {
     // Fecha actual
@@ -136,6 +143,7 @@ export class PostService {
   }
 
   getPostDetails(id: number): Observable<Post> {
+    
     return this._http.get<Post>(`${environment.backendUri}/posts/${id}`);
   }
 
@@ -154,5 +162,16 @@ export class PostService {
     return this._http.post<Post>(`${environment.backendUri}/posts`, post);
     
   }
+
+  updatePost(post: Post,id:Number): Observable<Post> {
+    
+    
+    let body = JSON.stringify(post);
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let options = { headers: headers };
+    return this._http.put<Post>(`${environment.backendUri}/posts/${id}`, body,options);
+  }
+
+
 
 }
